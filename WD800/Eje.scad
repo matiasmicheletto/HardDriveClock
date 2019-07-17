@@ -1,5 +1,5 @@
 /*
-    Titulo: Pieza.scad
+    Titulo: Eje.scad
     Descripcion: Pieza reemplazo motor stepper de disco duro con ahuecamiento 
         para pasar eje de máquina de reloj.
     Autor: Matías Micheletto
