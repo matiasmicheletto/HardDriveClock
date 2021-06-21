@@ -1,6 +1,6 @@
 /*
-    Title: Foot.scad
-    Description: Support foot to hold the hard drive stand.
+    Title: Stand.scad
+    Description: Desk stand to hold the hard drive.
     Author: Matias Micheletto
     Date: 12-Jul-2019
     Email: matias.micheletto@uns.edu.ar
