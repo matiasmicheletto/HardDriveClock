@@ -19,7 +19,7 @@ FW = SW/2;
 FL = 30;
 
 // Circular fit
-Fr = 3.5; // Fit radius
+Fr = 4.5; // Fit radius
 Fh = 15; // Fit length
 
 
@@ -32,3 +32,6 @@ cube([FW, FL, St], center = true);
 translate([SL/2-Fh, 0, Fr-St/2])
 rotate([0, 90, 0])
 cylinder(r = Fr, h = Fh);
+// Fit lateral filling
+translate([SL/2-Fh/2, 0, Fr/2-St/2])
+cube([Fh, 2*Fr, Fr], center = true);

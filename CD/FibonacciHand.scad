@@ -9,11 +9,11 @@
 
 $fn = 100; // Model resolution
 
-x = 45; // Spiral length from center to border
+x = 55; // Spiral length from center to border
 sections = 7; // Spiral sections
-width = 4; // Width
+width = 4; // Width of hand
 height = 2; // Thickness of the hand
-shaft_r = 3; // Shaft inner radius
+shaft_r = 3.1; // Shaft inner radius
 shaft_h = 3; // Shaft height
 
 
@@ -62,10 +62,10 @@ module spiral(){
 }
 
 // This is the center cylinder of the hand that is mounted to
-// the hour shaft of the clock
+// the hour shaft of the clock. The outer radius should be corrected
 module shaft() {
     difference(){
-        cylinder(r = shaft_r + width, h = shaft_h);
+        cylinder(r = shaft_r + width + 1, h = shaft_h);
         cylinder(r = shaft_r, h = shaft_h);
     }
 }
