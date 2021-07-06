@@ -16,6 +16,13 @@ height = 2; // Thickness of the hand
 shaft_r = 3.1; // Shaft inner radius
 shaft_h = 3; // Shaft height
 
+// Compact disc dimensions
+cd_outer_r = 60;
+cd_leadout_r = 58; // not used
+cd_leadin_r = 12.5;
+cd_inner_r = 7.5;
+cd_h = 1.2;
+
 
 // Fibonacci function
 function fibonacci(n) = 
@@ -54,6 +61,7 @@ function translate_x(n) =
 
 // Draw spiral positioning the sections correctly
 module spiral(){
+    color([.2,.2,.2])
     for(n=[1:sections]){
         translate(scale*[translate_x(n), translate_y(n), 0])
         rotate((n % 4) * 90)
@@ -64,12 +72,30 @@ module spiral(){
 // This is the center cylinder of the hand that is mounted to
 // the hour shaft of the clock. The outer radius should be corrected
 module shaft() {
+    color([.2,.2,.2])
     difference(){
         cylinder(r = shaft_r + width + 1, h = shaft_h);
         cylinder(r = shaft_r, h = shaft_h);
     }
 }
 
+// Compact disc (to put hand into perspective)
+module CD() {
+    color([1,1,1])
+    difference() {
+        cylinder(r = cd_outer_r, h = cd_h);
+        cylinder(r = cd_leadin_r, h = cd_h);
+    }
+    color([.8,.8,.8])
+    difference() {
+        cylinder(r = cd_leadin_r, h = cd_h);
+        cylinder(r = cd_inner_r, h = cd_h);
+    }
+}
+
 // Draw everything
+
 spiral();
 shaft();
+translate([0,0,-4])
+    CD();
